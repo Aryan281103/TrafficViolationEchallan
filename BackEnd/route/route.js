@@ -1,10 +1,10 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const router = express.Router();
+require('dotenv').config();
 
 // MongoDB connection
-const MONGO_URI =
-  "mongodb+srv://ananthsiddhanth66:Sanjana13@cluster0.uninr.mongodb.net/NumberPlates_Speed?retryWrites=true&w=majority&appName=Cluster0";
+const MONGO_URI = process.env.MONGODB_URI;
 
 mongoose
   .connect(MONGO_URI, {

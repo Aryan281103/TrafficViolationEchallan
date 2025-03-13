@@ -7,7 +7,21 @@ require('dotenv').config();
 
 const app = express();
 app.use(express.json());
-app.use(cors({ origin: "https://trafficviolation-frontend-7kf3tyud7-aryans-projects-4b4f3f69.vercel.app"}));
+app.use(cors({
+  origin: "https://trafficviolation-frontend.vercel.app", 
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"]
+}));
+
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "https://trafficviolation-frontend.vercel.app");
+  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+  res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
+  next();
+});
+
+
+
 
 mongoose.connect(process.env.MONGODB_URI)
   .then(() => console.log("MongoDB Connected"))
