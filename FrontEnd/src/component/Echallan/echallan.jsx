@@ -2,6 +2,8 @@ import React, { useState, useCallback } from "react";
 import axios from "axios";
 import "./echallan.css";
 
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
 const Echallan = () => {
   const [numberPlate, setNumberPlate] = useState("");
   const [violations, setViolations] = useState([]);
@@ -21,7 +23,7 @@ const Echallan = () => {
     setLoading(true); // Start loading
     try {
       const response = await axios.get(
-        `http://localhost:5000/ok/getViolations/${numberPlate}`
+        `${API_BASE_URL}/ok/getViolations/${numberPlate}`
       );
 
       if (response.status === 200 && Array.isArray(response.data.data)) {

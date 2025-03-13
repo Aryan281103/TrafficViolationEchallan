@@ -10,11 +10,14 @@ const RealTimeStatistics = () => {
   const [loadingChart, setLoadingChart] = useState(true); // Loading state for chart
   const [error, setError] = useState(null); // Error state
 
+
+  const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
   useEffect(() => {
     // Fetch data from the backend for statistics
     const fetchStatistics = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/ok/getDailyStats'); // Replace with your API endpoint
+        const response = await axios.get(`${API_BASE_URL}/ok/getDailyStats`); // Replace with your API endpoint
         const data = response.data.data;
 
         // Update state with the fetched data
