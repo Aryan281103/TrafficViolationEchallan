@@ -7,6 +7,10 @@ export default defineConfig({
   plugins: [react(),
     tailwindcss(),
   ],
+  base: '/',
+  server: {
+    historyApiFallback: true, // Ensures React Router works correctly
+  },
   define: {
     'process.env': process.env,
   },

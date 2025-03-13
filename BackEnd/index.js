@@ -31,7 +31,7 @@ app.get("/", (req, res) => {
   res.send("Hello, World!");
 });
 
-app.use("/ok", route);
+app.use("/api", route);
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {

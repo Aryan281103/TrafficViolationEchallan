@@ -23,7 +23,7 @@ const Echallan = () => {
     setLoading(true); // Start loading
     try {
       const response = await axios.get(
-        `${API_BASE_URL}/ok/getViolations/${numberPlate}`
+        `${API_BASE_URL}/api/getViolations/${numberPlate}`
       );
 
       if (response.status === 200 && Array.isArray(response.data.data)) {

@@ -17,7 +17,7 @@ const RealTimeStatistics = () => {
     // Fetch data from the backend for statistics
     const fetchStatistics = async () => {
       try {
-        const response = await axios.get(`${API_BASE_URL}/ok/getDailyStats`); // Replace with your API endpoint
+        const response = await axios.get(`${API_BASE_URL}/api/getDailyStats`); // Replace with your API endpoint
         const data = response.data.data;
 
         // Update state with the fetched data
